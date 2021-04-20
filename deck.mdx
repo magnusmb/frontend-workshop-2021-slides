@@ -66,10 +66,11 @@ console.log(otherStuff); // { date: "21.04.21" }
 ## Spread
 ```typescript
 const numbers = [1, 2, 3];
-const moreNumbers = [0, ...numbers, 4];
-// [0, 1, 2, 3, 4]
 
-console.log(moreNumbers); // [0, 1, 2, 3, 4]
+console.log(numbers);    // [1, 2, 3]
+console.log(...numbers); // 1, 2, 3
+
+console.log([0, ...numbers, 4]); // [0, 1, 2, 3, 4]
 ```
 
 ---
@@ -85,14 +86,14 @@ const other = {
   z: [1, 2],
 };
 const merged = { ...something, ...other };
+//           = { x: 3, y: "Hei", y: "Hallo", z: [1, 2] }
+
 console.log(merged);
 // {
 //   x: 3,
 //   y: "Hallo",
 //   z: [1, 2]
 // }
-
-// { x: 3, y: "Hei", y: "Hallo", z: [1, 2] }
 ```
 
 ---
@@ -102,12 +103,12 @@ console.log(merged);
 ```typescript
 const x: boolean = true;
 
-let z = 5;
-z = "Jeg vil være en streng!";
+let y = 5;
+y = "Jeg vil være en streng!";
 // Type 'string' is not assignable to type 'number'.
 
-let w: number | string = 5;
-w = "Nå er det ok!";
+let z: number | string = 5;
+z = "Dette er ok 👍";
 ```
 
 ---
