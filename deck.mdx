@@ -1,6 +1,7 @@
 import { Split, themes } from 'mdx-deck';
 
 export const theme = {
+  ...themes.aspect,
   ...themes.swiss,
   ...themes.prism,
 }
@@ -15,18 +16,88 @@ export const theme = {
 ---
 
 ## Først
-```sh
+```bash
 npx create-react-app \
     frontend-workshop \
     --template typescript
 ```
+---
+
+## Destrukturering
+```typescript
+const [a, b] = [1, 2];
+console.log(a); // 1
+console.log(b); // 2
+
+const [first, ...rest] = ["a", "b", "c", "d"];
+console.log(first); // "a"
+console.log(rest); // ["b", "c", "d"]
+```
 
 ---
 
-## Typeinferens
+## Javascript-objekter
+```typescript
+const person = {
+  name: "Magnus",
+  age: 29,
+  makeSound: () => console.log("Jasså!")
+};
+
+console.log(person.name); // "Magnus"
+console.log(person["name"]); // "Magnus"
+```
+
+---
+
+## Destrukturering av objekter
+```typescript
+const { message, ...otherStuff } = {
+  date: "21.04.21",
+  message: "Velkommen til workshop!"
+};
+
+console.log(message); // "Velkommen til workshop!"
+console.log(otherStuff); // { date: "21.04.21" }
+```
+
+---
+
+## Spread
+```typescript
+const numbers = [1, 2, 3];
+const moreNumbers = [0, ...numbers, 4];
+
+console.log(moreNumbers); // [0, 1, 2, 3, 4]
+```
+
+---
+
+## Spread
+```typescript
+const something = {
+  x: 3,
+  y: "Hei",
+};
+const other = {
+  y: "Hallo",
+  z: [1, 2],
+};
+const merged = { ...foo, ...bar };
+console.log(baz);
+// {
+//   x: 3,
+//   y: "Hallo",
+//   z: [1, 2]
+// }
+```
+
+---
+
+## Typer og inferens
 
 ```typescript
-const x: number = 1;
+const x: boolean = true;
 
 const y: number = "Hei";
 // Type 'string' is not assignable to type 'number'.
@@ -56,58 +127,43 @@ const foo: Foo = { bar: [9], baz: "Hallo" };
 
 ## Funksjoner
 ```typescript
-function add(a: number, b:number) {
+function add(a: number, b:number): number {
   return a + b;
 }
 
-const add = (a: number, b: number) => {
-  return a + b;
-};
+const sub = (a: number, b: number) => a - b;
 ```
 
 ---
 
-## Destrukturering
-```typescript
-const [a, b] = [1, 2];
-console.log(a); // 1
-console.log(b); // 2
+## Livekoding
+```bash
+cd frontend-workshop
+yarn start
 
-const [foo, ...bar] = ["a", "b", "c", "d"];
-console.log(foo); // "a"
-console.log(bar); // ["b", "c", "d"]
+# Om du ikke har yarn installert:
+npm run start
 ```
 
 ---
 
-## Med objekter
-```typescript
-const { y, ...z } = {
-  x: 30,
-  y: "Velkommen til workshop!"
-};
-
-console.log(y); // "Velkommen til workshop!"
-console.log(z); // { x: 30 }
-```
-
----
-
-## Spread
-```typescript
-const foo = {
-  x: 1,
-  y: "Hei"
-};
-const bar = {
-  y: "Hallo",
-  z: [1, 2]
-};
-const baz = { ...foo, ...bar };
-console.log(baz);
-// {
-//   x: 1,
-//   y: "Hallo",
-//   z: [1, 2]
-// }
-```
+## Takk for oss
+<Split>
+  <div style={{ textAlign: "left" }}>
+    <h3>Magnus Myhrvold Bratteng</h3>
+    <ul style={{ listStyle: "none", padding: 0 }}>
+      <li>
+        <img
+          src="https://avatars.githubusercontent.com/u/56268716"
+          alt="Magnus Myhrvold Bratteng"
+        />
+      </li>
+      <li>
+        <a href="mailto:magnumb@ifi.uio.no">magnumb@ifi.uio.no</a>
+      </li>
+      <li>
+        <a href="https://github.com/magnusmb">github.com/magnusmb</a>
+      </li>
+    </ul>
+  </div>
+</Split>
