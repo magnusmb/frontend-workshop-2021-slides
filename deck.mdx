@@ -1,0 +1,113 @@
+import { Split, themes } from 'mdx-deck';
+
+export const theme = {
+  ...themes.swiss,
+  ...themes.prism,
+}
+
+# Velkommen til front-end workshop med React og Typescript!
+
+<Split>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' />
+  <img style={{transform: "scale(60%)"}} src='https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg' />
+</Split>
+
+---
+
+## Først
+```sh
+npx create-react-app \
+    frontend-workshop \
+    --template typescript
+```
+
+---
+
+## Typeinferens
+
+```typescript
+const x: number = 1;
+
+const y: number = "Hei";
+// Type 'string' is not assignable to type 'number'.
+
+let z = 5;
+z = "Jeg vil være en streng!";
+// Type 'string' is not assignable to type 'number'.
+
+let w: number | string = 5;
+w = "Nå er det ok!";
+```
+
+---
+
+## Typedeklarasjoner
+```typescript
+type Foo = {
+  bar: number[],
+  baz: "Hei"
+}
+
+const foo: Foo = { bar: [9], baz: "Hallo" };
+// Type '"Hallo"' is not assignable to type '"Hei"'.
+```
+
+---
+
+## Funksjoner
+```typescript
+function add(a: number, b:number) {
+  return a + b;
+}
+
+const add = (a: number, b: number) => {
+  return a + b;
+};
+```
+
+---
+
+## Destrukturering
+```typescript
+const [a, b] = [1, 2];
+console.log(a); // 1
+console.log(b); // 2
+
+const [foo, ...bar] = ["a", "b", "c", "d"];
+console.log(foo); // "a"
+console.log(bar); // ["b", "c", "d"]
+```
+
+---
+
+## Med objekter
+```typescript
+const { y, ...z } = {
+  x: 30,
+  y: "Velkommen til workshop!"
+};
+
+console.log(y); // "Velkommen til workshop!"
+console.log(z); // { x: 30 }
+```
+
+---
+
+## Spread
+```typescript
+const foo = {
+  x: 1,
+  y: "Hei"
+};
+const bar = {
+  y: "Hallo",
+  z: [1, 2]
+};
+const baz = { ...foo, ...bar };
+console.log(baz);
+// {
+//   x: 1,
+//   y: "Hallo",
+//   z: [1, 2]
+// }
+```
