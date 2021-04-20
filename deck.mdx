@@ -31,7 +31,7 @@ console.log(b); // 2
 
 const [first, ...rest] = ["a", "b", "c", "d"];
 console.log(first); // "a"
-console.log(rest); // ["b", "c", "d"]
+console.log(rest);  // ["b", "c", "d"]
 ```
 
 ---
@@ -44,7 +44,7 @@ const person = {
   makeSound: () => console.log("Jasså!")
 };
 
-console.log(person.name); // "Magnus"
+console.log(person.name);    // "Magnus"
 console.log(person["name"]); // "Magnus"
 ```
 
@@ -57,7 +57,7 @@ const { message, ...otherStuff } = {
   message: "Velkommen til workshop!"
 };
 
-console.log(message); // "Velkommen til workshop!"
+console.log(message);    // "Velkommen til workshop!"
 console.log(otherStuff); // { date: "21.04.21" }
 ```
 
@@ -83,8 +83,8 @@ const other = {
   y: "Hallo",
   z: [1, 2],
 };
-const merged = { ...foo, ...bar };
-console.log(baz);
+const merged = { ...something, ...other };
+console.log(merged);
 // {
 //   x: 3,
 //   y: "Hallo",
@@ -142,18 +142,19 @@ cd frontend-workshop
 yarn start
 
 # Om du ikke har yarn installert:
-npm run start
+npm start
 ```
 
 ---
 
 ## Takk for oss
-<Split>
-  <div style={{ textAlign: "left" }}>
+<Split style={{ textAlign: "left", alignItems: "start" }}>
+  <div>
     <h3>Magnus Myhrvold Bratteng</h3>
     <ul style={{ listStyle: "none", padding: 0 }}>
       <li>
         <img
+          style={{ clipPath: "circle()" }}
           src="https://avatars.githubusercontent.com/u/56268716"
           alt="Magnus Myhrvold Bratteng"
         />
@@ -163,6 +164,21 @@ npm run start
       </li>
       <li>
         <a href="https://github.com/magnusmb">github.com/magnusmb</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h3>Bjørn-Andreas Lamo</h3>
+    <ul style={{ listStyle: "none", padding: 0 }}>
+      <li>
+        <img
+          style={{ clipPath: "circle()" }}
+          src="https://media.discordapp.net/attachments/813540167473561653/834115762347180137/IMG_0884.jpg"
+          alt="Bjørn-Andreas Lamo"
+        />
+      </li>
+      <li>
+        <a href="mailto:janilam@uio.no">janilam@uio.no</a>
       </li>
     </ul>
   </div>
