@@ -21,6 +21,34 @@ npx create-react-app \
     frontend-workshop \
     --template typescript
 ```
+
+---
+
+## Typer og inferens
+
+```typescript
+const x: boolean = true;
+// const x = true;
+
+let y = 5;
+y = "Jeg vil være en streng!";
+// Type 'string' is not assignable to type 'number'.
+
+let z: number | string = 5;
+z = "Dette er ok 👍";
+```
+
+---
+
+## Funksjoner
+```typescript
+function add(a: number, b:number): number {
+  return a + b;
+}
+
+const sub = (a: number, b: number): number => a - b;
+```
+
 ---
 
 ## Destrukturering
@@ -36,7 +64,7 @@ console.log(rest);  // ["b", "c", "d"]
 
 ---
 
-## Javascript-objekter
+## Objekter
 ```typescript
 const person = {
   name: "Magnus",
@@ -46,6 +74,21 @@ const person = {
 
 console.log(person.name);    // "Magnus"
 console.log(person["name"]); // "Magnus"
+```
+
+---
+
+## Typedeklarasjoner
+```typescript
+type Foo = {
+  bar: number[],
+  baz: string
+}
+
+const foo: Foo = { bar: [9], baz: "Hei" };
+
+const foo2: Foo = { bar: [9], baz: 1 }
+// Type 'number' is not assignable to type 'string'.
 ```
 
 ---
@@ -94,47 +137,6 @@ console.log(merged);
 //   y: "Hallo",
 //   z: [1, 2]
 // }
-```
-
----
-
-## Typer og inferens
-
-```typescript
-const x: boolean = true;
-
-let y = 5;
-y = "Jeg vil være en streng!";
-// Type 'string' is not assignable to type 'number'.
-
-let z: number | string = 5;
-z = "Dette er ok 👍";
-```
-
----
-
-## Typedeklarasjoner
-```typescript
-type Foo = {
-  bar: number[],
-  baz: string
-}
-
-const foo: Foo = { bar: [9], baz: "Hei" };
-
-const foo2: Foo = { bar: [9], baz: 1 }
-// Type 'number' is not assignable to type 'string'.
-```
-
----
-
-## Funksjoner
-```typescript
-function add(a: number, b:number): number {
-  return a + b;
-}
-
-const sub = (a: number, b: number) => a - b;
 ```
 
 ---
